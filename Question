@@ -1,47 +1,113 @@
-public class Question{
+package physicsGravityMaster;
 
-  private String question;
-  private int variable;
-  
-    public Question(int number){
-    
-    variable int = (int)(Math.random()*100)+1;
+public class Question {
 
-      switch(number){
-        case 1: question = "";
-                break;
-        case 2: question = "";
-                break;
+	private String question;
+	private int variable;
+	private int number;
 
-        case 3: question = "";
-                break;
+	public Question(int number) {
 
-        case 4: question = "";
-                break;
+		this.number = number;
+		variable = (int) (Math.random() * 100) + 1;
 
-        case 5: question = "";
-                break;
+		switch (number) {
+		case 1:
+			question = "";
+			break;
+		case 2:
+			question = "";
+			break;
 
-        case 6: question = "";
-                break;
+		case 3:
+			question = "";
+			break;
 
-        case 7: question = "";
-                break;
+		case 4:
+			question = "";
+			break;
 
-        case 8: question = "";
-                break;
+		case 5:
+			question = "";
+			break;
 
-        case 9: question = "";
-                break;
+		case 6:
+			question = "";
+			break;
 
-        case 10: question = "";
-                 break;
+		case 7:
+			question = "";
+			break;
 
-        default: question = "Error. Question number invalid.";
-                 break;
-      }
-      public String toString(){
-      return question;
-    }
-  }
-  
+		case 8:
+			question = "";
+			break;
+
+		case 9:
+			question = "";
+			break;
+
+		case 10:
+			question = "";
+			break;
+
+		default:
+			question = "Error. Question number invalid.";
+			break;
+		}
+	}
+
+	public String toString() {
+		return question;
+	}
+
+	public int solveProblem() {
+		int answer = 0;
+		switch (number) {
+		case 1:
+			answer = 0;
+			break;
+		case 2:
+			answer = 0;
+			break;
+
+		case 3:
+			answer = 0;
+			break;
+
+		case 4:
+			answer = 0;
+			break;
+
+		case 5:
+			answer = 0;
+			break;
+
+		case 6:
+			answer = 0;
+			break;
+
+		case 7:
+			answer = 0;
+			break;
+
+		case 8:
+			answer = 0;
+			break;
+
+		case 9:
+			answer = 0;
+			break;
+
+		case 10:
+			answer = 0;
+			break;
+
+		default:
+			answer = 0;
+			break;
+		}
+		return answer;
+	}
+
+}
