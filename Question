@@ -5,6 +5,7 @@ public class Question {
 	private String question;
 	private int variable;
 	private int number;
+	private double answer;
 
 	public Question(int number) {
 
@@ -13,42 +14,42 @@ public class Question {
 
 		switch (number) {
 		case 1:
-			question = "";
+			question = "<html><p>question 1<p></html>";
 			break;
 		case 2:
-			question = "";
+			question = "<html><p>question 2<p></html>";
 			break;
 
 		case 3:
-			question = "";
+			question = "<html><p>question 3<p></html>";
 			break;
 
 		case 4:
-			question = "";
+			question = "<html><p>question 4<p></html>";
 			break;
 
 		case 5:
-			question = "";
+			question = "<html><p>question 5<p></html>";
 			break;
 
 		case 6:
-			question = "";
+			question = "<html><p>question 6<p></html>";
 			break;
 
 		case 7:
-			question = "";
+			question = "<html><p>question 7<p></html>";
 			break;
 
 		case 8:
-			question = "";
+			question = "<html><p>question 8<p></html>";
 			break;
 
 		case 9:
-			question = "";
+			question = "<html><p>question 9<p></html>";
 			break;
 
 		case 10:
-			question = "";
+			question = "<html><p>question 10<p></html>";
 			break;
 
 		default:
@@ -61,8 +62,8 @@ public class Question {
 		return question;
 	}
 
-	public int solveProblem() {
-		int answer = 0;
+	public double getAnswer() {
+		answer = 0;
 		switch (number) {
 		case 1:
 			answer = 0;
