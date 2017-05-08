@@ -1,0 +1,122 @@
+package physicsGravityMaster;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class GravityMaster extends JFrame {
+
+	private JTextField txtAnswer;
+	private JLabel lblQuestion;
+	private JLabel lblCheck;
+	private Question questionPhys;
+	private int num = 0;
+
+	// SIZE: 570 by 491 pixels
+
+	public void generateQuestion() {
+		int num = 0;
+		do {
+			num = (int) (Math.random() * 10 + 1);
+		} while (this.num == num);
+		this.num = num;
+		questionPhys = new Question(this.num);
+	}
+
+	public GravityMaster() {
+		generateQuestion();
+
+		getContentPane().setBackground(new Color(224, 255, 255));
+		setForeground(Color.PINK);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+
+		JLabel lblTitle = new JLabel("Gravity Master");
+		lblTitle.setFont(new Font("Hunger Games", Font.PLAIN, 26));
+		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitle.setBounds(0, 0, 552, 55);
+		getContentPane().add(lblTitle);
+
+		lblQuestion = new JLabel(questionPhys.toString());
+		lblQuestion.setForeground(Color.BLACK);
+		lblQuestion.setFont(new Font("Virtual DJ", Font.PLAIN, 15));
+		lblQuestion.setHorizontalAlignment(SwingConstants.CENTER);
+		lblQuestion.setBounds(11, 72, 530, 214);
+		getContentPane().add(lblQuestion);
+
+		lblCheck = new JLabel("Enter your answer below!");
+		lblCheck.setFont(new Font("Virtual DJ", Font.PLAIN, 15));
+		lblCheck.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCheck.setBounds(16, 311, 520, 16);
+		getContentPane().add(lblCheck);
+
+		txtAnswer = new JTextField();
+		txtAnswer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String text = txtAnswer.getText();
+					double studentAnswer = Double.parseDouble(text);
+					if (studentAnswer == questionPhys.getAnswer()) {
+						lblCheck.setText("Congrats! You got the correct answer! Now try the new question.");
+						generateQuestion();
+						lblQuestion.setText(questionPhys.toString());
+					} else
+						lblCheck.setText("Incorrect. Try again!");
+
+				} catch (Exception E) {
+					lblCheck.setText("Please enter your answer as a number.");
+				} finally {
+					txtAnswer.requestFocus();
+					txtAnswer.selectAll();
+				}
+			}
+		});
+
+		txtAnswer.setFont(new Font("Virtual DJ", Font.PLAIN, 13));
+		txtAnswer.setBounds(213, 340, 126, 29);
+		getContentPane().add(txtAnswer);
+		txtAnswer.setColumns(10);
+
+		JButton btnEnter = new JButton("Enter");
+		btnEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					String text = txtAnswer.getText();
+					double studentAnswer = Double.parseDouble(text);
+					if (studentAnswer == questionPhys.getAnswer()) {
+						lblCheck.setText("Congrats! You got the correct answer! Now try the new question.");
+						generateQuestion();
+						lblQuestion.setText(questionPhys.toString());
+					} else
+						lblCheck.setText("Incorrect. Try again!");
+
+				} catch (Exception E) {
+					lblCheck.setText("Please enter your answer as a number.");
+				} finally {
+					txtAnswer.requestFocus();
+					txtAnswer.selectAll();
+				}
+			}
+		});
+		btnEnter.setFont(new Font("Virtual DJ", Font.PLAIN, 13));
+		btnEnter.setBounds(228, 380, 97, 25);
+		getContentPane().add(btnEnter);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GravityMaster window = new GravityMaster();
+		window.setSize(570, 491);
+		window.setVisible(true);
+
+	}
+}
